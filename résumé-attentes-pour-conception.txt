@@ -1,0 +1,26 @@
+1= utiliser html/css/js/php sans framework librairie possible
+
+2= les cibles doivent avoir (nom, prenom, date de naissance, code identification, nationnalité.
+
+3= les contacts ont un nom, prenom, date de naissance, nom de code, nationnalité.
+
+4= les planques ont ont un code, une adresse, un pays, un type.
+
+5= Les missions ont un titre, une description, un nom de code, un pays, 1 ou plusieur agents, 
+1 ou + statut (en preparation/cours/terminée/echec),0 ou + planques, 1 spécialité requise, date de début/fin.
+
+6= les administrateurs ont un nom, un prenom, une adresse mail, un mot de passe, une date de creation.
+
+7= Sur une mission, la ou les cibles ne peuvent pas avoir la même nationalité que le ou les agents.
+- Sur une mission, les contacts sont obligatoirement de la nationalité du pays de la mission.
+- Sur une mission, la planque est obligatoirement dans le même pays que la mission.
+- Sur une mission, il faut assigner au moins 1 agent disposant de la spécialité requise.
+
+8= diagramme mcd/mld
+
+BONUS :
+- Intégrer un système de pagination sur toutes les listes du site (front-office / back-office)
+- Ajouter un système de filtres et de tri sur toutes les listes du site
+- Ajouter un champ de recherche pour une mission
+- Utiliser l'AJAX pour envoyer et récupérer des données vers votre backend de façon 
+asynchrone, sans avoir à recharger la page
