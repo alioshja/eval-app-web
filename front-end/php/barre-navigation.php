@@ -6,12 +6,6 @@
 <nav>
 
 <button class="nav-case" onclick="burger()"><img class="burger" src="images/menu-burger.jpg"></button>
-<div id="divNav"></div>
+<form id="divNav"></form>
 </nav>
-<?php
-
-
-// Faites ce que vous voulez avec la variable PHP ici
-// Par exemple, affichez-la ou effectuez un traitement
-?>
 </html>
