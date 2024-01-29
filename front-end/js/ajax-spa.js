@@ -4,7 +4,7 @@ function ajax() {
         type: 'POST',
         url: '../../index.php',
         data: {
-
+            body
         },
         success: function(response) {
             console.log('Réponse du serveur :', response);
