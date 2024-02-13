@@ -33,7 +33,7 @@ if(isset($_POST['valeur'])) {
     }else {
         include_once "front-end/php/body-menu.php";
     }
-    var_dump($_POST);
+    var_dump($_POST['valeur']);
 ?>
 <?php
 include_once "front-end/php/espace-du-bas.php";

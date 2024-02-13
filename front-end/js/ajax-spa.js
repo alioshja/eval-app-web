@@ -12,7 +12,7 @@ function ajax(i) {
     //verifié
     let valeur = body;
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", "index.php", true);
+    xhr.open("POST", "front-end/php/barre-navigation.php", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.onreadystatechange = function() {
       if (xhr.readyState === XMLHttpRequest.DONE) {
