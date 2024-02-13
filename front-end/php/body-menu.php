@@ -5,7 +5,6 @@
     <meta lang="fr" charset="utf-8">
 </head>
 
-<body>
     <main>
         <h1 class="box">Bienvenu sur my mercenary.com</h1>
         <img class="img-menu" src="images\bandeau-principal.jpg">
@@ -32,6 +31,5 @@
             Notre service prélèvera l'agent sur votre compte seulement une fois la mission terminée.
         </p>
     </main>
-</body>
 
 </html>
