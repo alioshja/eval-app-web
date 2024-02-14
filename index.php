@@ -15,25 +15,20 @@ include_once "front-end/php/barre-navigation.php";
 ?>
 </header>
 <?php
-if(isset($_POST['valeur'])) {
-    // Récupère la valeur envoyée via AJAX
-    $valeur = $_POST['valeur'];
-    
-    echo "La valeur envoyée est : " . $valeur;
-} else {
-    // Si la valeur "valeur" n'a pas été envoyée, affiche un message d'erreur
-    echo "Aucune valeur n'a été envoyée.";
-}
-    if ($body == 3) {
-        include_once "front-end/php/body-menu.php";
-    }elseif ($body ==1) {
-        include_once "front-end/php/form-connection.php";
-    }elseif ($body ==2) {
-        include_once "front-end/php/form-inscription.php";
-    }else {
-        include_once "front-end/php/body-menu.php";
-    }
-    var_dump($_POST['valeur']);
+include_once "front-end/php/body-menu.php";
+    // if ($body == 3) {
+    //     include_once "front-end/php/body-menu.php";
+    // }elseif ($body ==1) {
+    //     include_once "front-end/php/form-connection.php";
+    // }elseif ($body ==2) {
+    //     include_once "front-end/php/form-inscription.php";
+    // }else {
+    //     include_once "front-end/php/body-menu.php";
+    // }
+    // echo "<pre>";
+    // print_r($_POST);
+    // echo "</pre>";
+    // error_log("Variable POST reçue : " . $_POST['valeur']);
 ?>
 <?php
 include_once "front-end/php/espace-du-bas.php";
