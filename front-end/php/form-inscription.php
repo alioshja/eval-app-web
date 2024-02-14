@@ -4,6 +4,7 @@
     <meta lang="fr" charset="utf-8">
 </head>
 <body>
+    <main>
 <h1>inscription</h1>
 <br>
 <form>
@@ -21,5 +22,6 @@
 
     <button type="submit">Valider</button>
 </form>
+</main>
 </body>
 </html>

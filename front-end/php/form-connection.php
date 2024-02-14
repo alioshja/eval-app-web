@@ -4,6 +4,7 @@
     <meta lang="fr" charset="utf-8">
 </head>
 <body>
+    <main>
 <h1>connection</h1>
 <br>
 <form>
@@ -15,5 +16,6 @@
 
     <button type="submit">Connection</button>
 </form>
+</main>
 </body>
 </html>

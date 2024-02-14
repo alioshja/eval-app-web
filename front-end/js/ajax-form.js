@@ -1,16 +1,5 @@
-// Utilisation d'AJAX pour envoyer la variable au script PHP
-let body = 1;
-function ajax(i) {
-    if(i == 1) {
-       body = 1;
-    }if(i == 2) {
-       body = 2;
-    }if(i == 3) {
-       body = 3;
-    }
-    // console.log(body);
-    //verifié
-    let valeur = body;
+// Utilisation d'AJAX pour envoyer le form au script PHP
+
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "front-end/php/barre-navigation.php", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -28,4 +17,3 @@ function ajax(i) {
     };
     console.log(valeur);
     xhr.send("valeur=" + encodeURIComponent(valeur));
-}
