@@ -3,7 +3,6 @@
 
 <head>
     <meta lang="fr" charset="utf-8">
-    <script src="front-end\js\ajax-form.js"></script>
 </head>
 
 <body>
@@ -11,25 +10,25 @@
         <h1>inscription</h1>
         <br>
         <form id="inscriptionForm">
-            <label for="prenom">Prénom</label>
+            <label>Prénom</label>
             <input type="text" placeholder="albert" name="prenom" id="prenom" required>
 
             <br>
             <br>
 
-            <label for="nom">Nom</label>
+            <label>Nom</label>
             <input type="text" placeholder="dupont" name="nom" id="nom" required>
 
             <br>
             <br>
 
-            <label for="mail">E-Mail</label>
+            <label>E-Mail</label>
             <input type="mail" placeholder="mrdupont@mail.fr" name="mail" id="mail" required>
 
             <br>
             <br>
 
-            <label for="password">Mot-de-passe</label>
+            <label>Mot-de-passe</label>
             <input type="password" placeholder="Lecielbleu1234" name="password" id="password" required>
 
             <br>

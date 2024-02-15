@@ -8,13 +8,13 @@
 <h1>connection</h1>
 <br>
 <form>
-    <label for="mail">E-Mail</label>
+    <label>E-Mail</label>
     <input type="mail" placeholder="mrdupont@mail.fr" name="mail">
 
     <br>
     <br>
 
-    <label for="password">Mot-de-passe</label>
+    <label>Mot-de-passe</label>
     <input type="password" placeholder="Lecielbleu1234" name="password">
 
     <br>
