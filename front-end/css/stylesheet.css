@@ -103,3 +103,22 @@ height: 28vh;
     height: 5vh;
     width: 5vh;
 }
+form {
+    display: flex;
+    flex-direction: column;
+    color: antiquewhite;
+    margin: auto;
+    text-align: center;
+}
+input {
+    width: 50%;
+    height: 5%;
+    margin: auto;
+}
+.submit-button {
+    height: 5%;
+    width: 20%;
+    background-color: blueviolet;
+    margin: auto;
+    border-radius: 1%;
+}

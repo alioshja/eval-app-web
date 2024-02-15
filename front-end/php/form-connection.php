@@ -11,10 +11,16 @@
     <label for="mail">E-Mail</label>
     <input type="mail" placeholder="mrdupont@mail.fr" name="mail">
 
+    <br>
+    <br>
+
     <label for="password">Mot-de-passe</label>
     <input type="password" placeholder="Lecielbleu1234" name="password">
 
-    <button type="submit">Connection</button>
+    <br>
+    <br>
+
+    <button class="submit-button" type="submit">Connection</button>
 </form>
 </main>
 </body>

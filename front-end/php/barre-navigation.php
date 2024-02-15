@@ -6,7 +6,7 @@
 <header>
 <nav>
 <button class="nav-case" onclick="burger()"><img class="burger" src="images/menu-burger.jpg"></button>
-<form id="divNav"></form>
+<div id="divNav"></div>
 </nav>
 </header>
 </html>
