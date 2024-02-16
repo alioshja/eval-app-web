@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta lang="fr" charset="utf-8">
 </head>
-
 <body>
     <main>
         <h1>inscription</h1>
@@ -38,5 +36,4 @@
         </form>
     </main>
 </body>
-
 </html>

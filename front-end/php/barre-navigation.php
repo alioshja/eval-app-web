@@ -5,7 +5,7 @@
 </head>
 <header>
 <nav>
-<button class="nav-case" onclick="burger()"><img class="burger" src="images/menu-burger.jpg"></button>
+<button class="nav-case" onclick="burger(1)"><img class="burger" src="images/menu-burger.jpg"></button>
 <div id="divNav"></div>
 </nav>
 </header>

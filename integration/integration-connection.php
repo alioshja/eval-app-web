@@ -8,9 +8,9 @@
 <body>
 <header>
 <nav>
-<button class="nav-case" onclick="burger()"><img class="burger" src="../images/menu-burger.jpg"></button>
+<button class="nav-case" onclick="burger(2)"><img class="burger" src="../images/menu-burger.jpg"></button>
 <div id="divNav"></div>
-    <script src="../front-end/js/script-front.js"></script>
+<script src="../front-end/js/script-front.js"></script>
 </nav>
 </header>
 <?php
