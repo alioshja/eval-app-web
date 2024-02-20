@@ -32,7 +32,7 @@
             <br>
             <br>
 
-            <button class="submit-button" type="submit">Valider</button>
+            <button class="submit-button" id="validate" onclick="ajax()">Valider</button>
         </form>
     </main>
 </body>

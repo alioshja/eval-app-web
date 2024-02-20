@@ -16,6 +16,7 @@
 </nav>
 </header>
 <?php
+require_once "../back-end/php/traitement-de-donnees-saisies.php";
 include_once "../front-end/php/form-inscription.php";
 include_once "../front-end/php/espace-du-bas.php";
 ?>
