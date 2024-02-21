@@ -1,15 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1>hello</h1>
+    </body>
+</html>
 <?php
 require_once 'connection-bdd.php';
+var_dump($_POST);
 
 // Vérification si des données ont été envoyées depuis le formulaire
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Récupération des données du formulaire
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+    $email = $_POST['mail'];
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
     $prenom = $_POST['prenom'];
     $nom = $_POST['nom'];
+    
 
-var_dump($_POST);
     // Validation des données (vous devriez ajouter plus de validation selon vos besoins)
     if (empty($email) || empty($password) || empty($prenom) || empty($nom)) {
         // Gérer les cas où des champs obligatoires sont vides
@@ -18,8 +25,8 @@ var_dump($_POST);
     }
 
     // Préparation de la requête SQL avec une requête préparée pour éviter les injections SQL
-    $sql = "INSERT INTO nom_de_votre_table (email, password, prenom, nom) VALUES (:email, :password, :prenom, :nom)";
-    $stmt = $conn->prepare($sql);
+    $sql = "INSERT INTO clients (mail, password, prenom, nom) VALUES (:email, :password, :prenom, :nom)";
+    $stmt = $bdd->prepare($sql);
 
     // Liaison des paramètres et exécution de la requête
     $stmt->bindParam(':email', $email);

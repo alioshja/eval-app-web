@@ -7,7 +7,7 @@
     <main>
         <h1>inscription</h1>
         <br>
-        <form id="inscriptionForm">
+        <form id="inscriptionForm" method="POST" action="../back-end/php/traitement-de-donnees-saisies.php">
             <!--les id servent a récupéré les valeurs saisies par l'utlisateur avant meme validation par celuis la meme-->
             <label>Prénom</label>
             <input type="text" placeholder="albert" name="prenom" id="prenom" required>
@@ -41,7 +41,7 @@
             <div id=error_message4></div>
 
 
-            <button class="submit-button" id="validate">Valider</button>
+            <button type="submit" class="submit-button" id="validate">Valider</button>
             <br>
             <br>
         </form>
