@@ -8,8 +8,10 @@
         <h1>inscription</h1>
         <br>
         <form id="inscriptionForm">
+            <!--les id servent a récupéré les valeurs saisies par l'utlisateur avant meme validation par celuis la meme-->
             <label>Prénom</label>
             <input type="text" placeholder="albert" name="prenom" id="prenom" required>
+            <div id=error_message1></div>
 
             <br>
             <br>
@@ -22,17 +24,26 @@
 
             <label>E-Mail</label>
             <input type="mail" placeholder="mrdupont@mail.fr" name="mail" id="mail" required>
+            <div id=error_message2></div>
 
             <br>
             <br>
 
             <label>Mot-de-passe</label>
-            <input type="password" placeholder="Lecielbleu1234" name="password" id="password" required>
+            <input type="password" placeholder="......." name="password" id="password" required>
+            <div id=error_message3></div>
 
             <br>
             <br>
 
-            <button class="submit-button" id="validate" onclick="ajax()">Valider</button>
+            <label>Confirmation de Mot-de-passe</label>
+            <input type="password" placeholder="......." name="password-confirm" id="password-confirm" required>
+            <div id=error_message4></div>
+
+
+            <button class="submit-button" id="validate">Valider</button>
+            <br>
+            <br>
         </form>
     </main>
 </body>

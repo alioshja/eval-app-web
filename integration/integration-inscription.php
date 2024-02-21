@@ -4,7 +4,6 @@
     <meta lang="fr" charset="utf-8">
     <meta content="site spécilalisé dans la mise en relation avec des mercenaires répertoriant diverses missions pour diferentes spécialitées.">
     <link rel="stylesheet" href="../front-end/css/stylesheet.css">
-    <script src="../front-end/js/ajax-form.js"></script>
     </head>
 <body>
 <header>
@@ -16,9 +15,10 @@
 </nav>
 </header>
 <?php
-require_once "../back-end/php/traitement-de-donnees-saisies.php";
+include_once "../back-end/php/traitement-de-donnees-saisies.php";
 include_once "../front-end/php/form-inscription.php";
 include_once "../front-end/php/espace-du-bas.php";
 ?>
+<script src="../front-end/js/ajax-form.js"></script>
 </body>
 </html>

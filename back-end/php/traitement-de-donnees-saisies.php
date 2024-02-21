@@ -9,6 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $prenom = $_POST['prenom'];
     $nom = $_POST['nom'];
 
+var_dump($_POST);
     // Validation des données (vous devriez ajouter plus de validation selon vos besoins)
     if (empty($email) || empty($password) || empty($prenom) || empty($nom)) {
         // Gérer les cas où des champs obligatoires sont vides

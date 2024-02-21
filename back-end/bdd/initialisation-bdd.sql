@@ -1,5 +1,5 @@
-CREATE NEW DATABASE merecenary.com;
-
+CREATE DATABASE mercenary;
+DROP DATABASE mercenary;
 CREATE TABLE agents (
     id INT NOT NULL AUTO_INCREMENT,
     code INT NOT NULL,
