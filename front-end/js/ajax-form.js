@@ -47,7 +47,6 @@ event.preventDefault();
       // Si toutes les conditions sont remplies, soumettez le formulaire
       alert('votre compte a bien été crée.')
       document.getElementById('inscriptionForm').submit();
-      window.location.href = '../index.php';
   } else {
       // Sinon, ne faites rien et laissez l'utilisateur corriger les erreurs
   }
