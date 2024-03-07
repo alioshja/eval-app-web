@@ -36,3 +36,12 @@ CREATE TABLE clients (
 )
 
 DROP TABLE clients;
+
+CREATE TABLE imagesp (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    img VARCHAR(200),
+    userid INT NOT NULL,
+FOREIGN KEY (userid) REFERENCES clients(id)
+);
+
+DROP TABLE imagesp;
