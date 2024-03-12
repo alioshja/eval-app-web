@@ -1,6 +1,6 @@
 1= utiliser html/css/js/php sans framework librairie possible
 
-2= les cibles doivent avoir (nom, prenom, date de naissance, code identification, nationnalité.
+2= les cibles doivent avoir (nom, prenom, date de naissance, code identification, nationnalité).
 
 3= les contacts ont un nom, prenom, date de naissance, nom de code, nationnalité.
 

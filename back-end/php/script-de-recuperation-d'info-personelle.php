@@ -14,16 +14,12 @@ $stmt->execute();
 if ($stmt->rowCount() > 0) {
     // Récupérez le résultat de la requête
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
-    $nom = $row['nom'];
-    $prenom = $row['prenom'];
+    $_SESSION['nom'] = $row['nom'];
+    $_SESSION['prenom'] = $row['prenom'];
     
     // Affichez le nom et le prénom de l'utilisateur
 } else {
     echo "Aucun utilisateur trouvé avec cet e-mail.";
 }
 $img = '';
-
-if ($img = null) {
-    $img = 'https://previews.123rf.com/images/afe207/afe2071307/afe207130700241/20888193-anonyme-image-m%C3%A2le-profil.jpg';
-}
 ?>
