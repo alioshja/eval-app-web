@@ -5,7 +5,7 @@ if (isset($_SESSION['mail'])) {
     $email = $_SESSION['mail'];
 }
 // Requête SQL pour récupérer le nom et le prénom de l'utilisateur à partir de son e-mail
-$sql = "SELECT nom, prenom FROM clients WHERE mail = :email";
+$sql = "SELECT id, nom, prenom FROM clients WHERE mail = :email";
 $stmt = $bdd->prepare($sql);
 $stmt->bindParam(':email', $email);
 $stmt->execute();
@@ -16,6 +16,7 @@ if ($stmt->rowCount() > 0) {
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
     $_SESSION['nom'] = $row['nom'];
     $_SESSION['prenom'] = $row['prenom'];
+    $_SESSION['id'] = $row['id'];
     
     // Affichez le nom et le prénom de l'utilisateur
 } else {
