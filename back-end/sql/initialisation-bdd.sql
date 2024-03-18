@@ -45,3 +45,33 @@ FOREIGN KEY (userid) REFERENCES clients(id)
 );
 
 DROP TABLE imagesp;
+
+CREATE TABLE missions (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    titre VARCHAR(60) NOT NULL,
+    but VARCHAR (100) NOT NULL,
+    paysmission VARCHAR (40) NOT NULL,
+    nomdecodemission VARCHAR (40) NOT NULL,
+    iduser INT NOT NULL,
+    FOREIGN KEY (iduser) REFERENCES client(id)
+)
+
+CREATE TABLE contact (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nomcontact VARCHAR(60) NOT NULL,
+    prenomcontact VARCHAR (100) NOT NULL,
+    datenaissancecontact VARCHAR (40) NOT NULL,
+    nationnalitecontact VARCHAR (40) NOT NULL,
+    iduser INT NOT NULL,
+    FOREIGN KEY (iduser) REFERENCES client(id)
+)
+
+CREATE TABLE cible (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nomcible VARCHAR(60) NOT NULL,
+    prenomcible VARCHAR (100) NOT NULL,
+    datenaissancecible VARCHAR (40) NOT NULL,
+    nationnalitecible VARCHAR (40) NOT NULL,
+    iduser INT NOT NULL,
+    FOREIGN KEY (iduser) REFERENCES client(id)
+)
