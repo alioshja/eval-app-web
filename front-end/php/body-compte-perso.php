@@ -3,7 +3,6 @@
     <meta charset="utf-8" lang="fr">
     <body>
 <main>
-    <?php session_start(); ?>
     <br>
     <h1>
         Ravi de vous revoir <?php echo $_SESSION['prenom'];?>.

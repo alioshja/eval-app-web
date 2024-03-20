@@ -8,7 +8,9 @@
 <?php session_start(); ?>
 <body>
     <main>
+        <nav>
         <button onclick = 'window.location.href = "../../integration/page-personelle.php";'>menu</button>
+        </nav>
         <h1>
             Demande d'intervention
         </h1>

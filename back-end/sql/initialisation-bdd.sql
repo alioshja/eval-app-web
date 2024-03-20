@@ -56,6 +56,8 @@ CREATE TABLE missions (
     FOREIGN KEY (iduser) REFERENCES client(id)
 )
 
+DROP TABLE missions;
+
 CREATE TABLE contact (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     nomcontact VARCHAR(60) NOT NULL,
@@ -66,6 +68,8 @@ CREATE TABLE contact (
     FOREIGN KEY (iduser) REFERENCES client(id)
 )
 
+DROP TABLE contact;
+
 CREATE TABLE cible (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     nomcible VARCHAR(60) NOT NULL,
@@ -75,3 +79,5 @@ CREATE TABLE cible (
     iduser INT NOT NULL,
     FOREIGN KEY (iduser) REFERENCES client(id)
 )
+
+DROP TABLE cible;

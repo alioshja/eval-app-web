@@ -54,3 +54,19 @@ $pdo3->bindParam(':nationnalitecible', $Nationnalite);
 $pdo3->bindParam(':id', $user_id);
 $pdo3->execute();
 ?>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" lang="fr">
+        <link href="../../front-end/css/stylesheet.css" rel="stylesheet">
+    </head>
+    <h1>Votre demande a bien été enregistrée.</h1>
+    <br>
+    <br>
+    <p>
+    Vous pouvez suivre son évolution depuis la rubrique interventions en cours.
+    </p>
+    <button onclick="window.location.href = '../../integration/page-personelle.php';">
+        Revenir a mon espace personnel.
+    </button>
+</html>
