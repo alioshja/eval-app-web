@@ -4,6 +4,9 @@ session_start();
 
 //récupération des champ de form
 
+//id de l'utilisateur
+$user_id = $_POST['user_id'];
+
 //modalitées de mission qui sera inscrit separément dans une bdd 
 $titre = htmlspecialchars(htmlentities(stripslashes($_POST['title'])));
 $but =  htmlspecialchars(htmlentities(stripslashes($_POST['goal'])));
@@ -31,7 +34,8 @@ $pdo1->bindParam(':titre', $titre);
 $pdo1->bindParam(':but', $but);
 $pdo1->bindParam(':paysmission', $paysMission);
 $pdo1->bindParam(':nomdecodemission', $nomCode);
-$pdo1->bindParam(':id', $_SESSION['id']);
+$pdo1->bindParam(':id', $user_id);
+
 $pdo1->execute();
 //implementation table contact
 $sql2 = 'INSERT INTO contact (nomcontact, prenomcontact, datenaissancecontact, nationnalitecontact, userid) VALUE (:titre, :but, :paysmission, :nomdecodemission, :id)';
@@ -40,7 +44,7 @@ $pdo2->bindParam(':nomcontact', $nomContact);
 $pdo2->bindParam(':prenomcontact', $prenomContact);
 $pdo2->bindParam(':datenaissancecontact', $DateNaissanceContact);
 $pdo2->bindParam(':nationnalitecontact', $NationnaliteContact);
-$pdo2->bindParam(':id', $_SESSION['id']);
+$pdo2->bindParam(':id', $user_id);
 $pdo2->execute();
 //implementation table cible
 $sql3 = 'INSERT INTO cible (nomcible, prenomcible, datenaissancecible, nationnalitecible, userid) VALUE (:titre, :but, :paysmission, :nomdecodemission, :id)';
@@ -49,6 +53,6 @@ $pdo3->bindParam(':nomcible', $nom);
 $pdo3->bindParam(':prenomcible', $prenom);
 $pdo3->bindParam(':datenaissancecible', $DateDeNaissance);
 $pdo3->bindParam(':nationnalitecible', $Nationnalite);
-$pdo3->bindParam(':id', $_SESSION['id']);
+$pdo3->bindParam(':id', $user_id);
 $pdo3->execute();
 ?>
