@@ -3,10 +3,6 @@
 if (isset($_GET['button'])) {
     $button = $_GET['button'];
     switch ($button) {
-        case 'demande-intervention':
-            // Réinitialiser $link en fonction de la demande d'intervention
-            $link = '../front-end/php/demande-intervention.php';
-            break;
         case 'messagerie':
             // Réinitialiser $link en fonction de la messagerie
             $link = '../front-end/php/messagerie.php';

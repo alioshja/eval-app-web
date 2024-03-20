@@ -14,7 +14,7 @@ include_once '../back-end/php/script-de-recuperation-d\'info-personelle.php';
 
 <body>
     <nav>
-        <button id="btn-demande-intervention">demander-intervention</button>
+        <button onclick="window.location.href = '../front-end/php/demande-intervention.php';">demander-intervention</button>
         <button id="btn-messagerie">messagerie</button>
         <button id="btn-interventions-en-cours">interventions-en-cours</button>
         <img class="profileImg" src="../images/anonyme-image-mâle-profil.jpg">
