@@ -1,95 +1,122 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" lang="fr">
-        <link href="../css/stylesheet.css" rel="stylesheet">
-    </head>
-    <body>
+
+<head>
+    <meta charset="utf-8" lang="fr">
+    <link href="../css/stylesheet.css" rel="stylesheet">
+</head>
+
+<body>
     <header>
         <nav>
-        <button onclick="window.location.href = '../../integration/page-personelle.php';">Retourner au menu</button>
+            <button onclick="window.location.href = '../../integration/page-personelle.php';">Retourner au menu</button>
         </nav>
     </header>
     <main>
         <h1>Vos demandes d'intervention.</h1>
-        <?php 
+        <?php
         //partie de recupération dans la bdd.
-            include_once '../../back-end/php/connection-bdd.php';
-            session_start();
+        include_once '../../back-end/php/connection-bdd.php';
+        session_start();
+        $id_mission = '';
+        $user_id = $_SESSION['id'];
+        try {
+            // Requête SQL pour récupérer les données correspondant à l'ID de l'utilisateur connecté
+            $sql = "SELECT * FROM missions WHERE iduser = :user_id";
+            $sql2 = "SELECT * FROM contact WHERE iduser = :user_id";
+            $sql3 = "SELECT * FROM cible WHERE iduser = :user_id";
 
-            $user_id = $_SESSION['id'];
-try {
-    // Requête SQL pour récupérer les données correspondant à l'ID de l'utilisateur connecté
-    $sql = "SELECT * FROM missions WHERE iduser = :user_id";
-    $sql2 = "SELECT * FROM contact WHERE iduser = :user_id";
-    $sql3 = "SELECT * FROM cible WHERE iduser = :user_id";
+            // Préparation de la requête
+            $stmt = $bdd->prepare($sql);
+            $stmt2 = $bdd->prepare($sql2);
+            $stmt3 = $bdd->prepare($sql3);
 
-    // Préparation de la requête
-    $stmt = $bdd->prepare($sql);
-    $stmt2 = $bdd->prepare($sql2);
-    $stmt3 = $bdd->prepare($sql3);
+            // Liaison des paramètres
+            $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+            $stmt2->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+            $stmt3->bindParam(':user_id', $user_id, PDO::PARAM_INT);
 
-    // Liaison des paramètres
-    $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
-    $stmt2->bindParam(':user_id', $user_id, PDO::PARAM_INT);
-    $stmt3->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+            // Exécution de la requête
+            $stmt->execute();
+            $stmt2->execute();
+            $stmt3->execute();
 
-    // Exécution de la requête
-    $stmt->execute();
-    $stmt2->execute();
-    $stmt3->execute();
+            // Vérification s'il y a des résultats
+            // stmt mission
+            if ($stmt->rowCount() > 0) {
+                // Affichage des données pour chaque ligne correspondante
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                    $id_mission = $row['id'];
+                    $_SESSION['iddeleate'] = $id_mission;
+                    echo '<h2>Intitulé mission</h2>';
+                    //var_dump($row);
+                    echo "<p>Titre:   " . $row['titre'] .  "    - Objectifs: " . $row['but'] . "<br><br>Pays mission:   " . $row['paysmission'] . "   Nom de code:   " . $row['nomdecodemission'] . "</p>";
+                    // Créer un bouton pour chaque ligne avec l'ID correspondant
+                    echo "<br><br>";
+                    //stmt2 contact
 
-    // Vérification s'il y a des résultats
-    // stmt mission
-    if ($stmt->rowCount() > 0) {
-        // Affichage des données pour chaque ligne correspondante
-        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            echo '<h2>vos informations</h2>';
-            //var_dump($row);
-            echo "<p>Titre:   " . $row['titre'].  "    - Objectifs: " . $row['but']. "<br><br>Pays mission:   ". $row['paysmission'] . "   Nom de code:   " . $row['nomdecodemission'] . "</p>";
-            // Créer un bouton pour chaque ligne avec l'ID correspondant
-            echo "<button onclick=''>annuler mission</button>";
-            echo "<br><br>";
-        }
-    } else {
-        echo "Aucun résultat trouvé.";
-    }//ok
+                    if ($stmt2->rowCount() > 0) {
+                        // Affichage des données pour chaque ligne correspondante
+                        ($row2 = $stmt2->fetch(PDO::FETCH_ASSOC));
+                            echo '<h2>Vos informations</h2>';
+                            echo "<p>Nom: " . $row2['nomcontact'] .  " - Prénom: " . $row2['prenomcontact'] . "<br><br>Date de naissance " . $row2['datenaissancecontact'] . "Nationnalité" . $row2['nationnalitecontact'] . "</p>";
+                            // Créer un bouton pour chaque ligne avec l'ID correspondant
+                            echo "<br>";
+                            echo "<br><br>";
+                        }
+                    // stmt3 cibles
+                    if ($stmt3->rowCount() > 0) {
+                        // Affichage des données pour chaque ligne correspondante
+                        $row3 = $stmt3->fetch(PDO::FETCH_ASSOC);
+                            echo '<h2>Info cible</h2>';
+                            echo "<p>Nom: " . $row3['nomcible'] .  " - Prénom: " . $row3['prenomcible'] . "<br><br>Date de naissance " . $row3['datenaissancecible'] . "Nationnalité" . $row3['nationnalitecible'] . "</p>";
+                            // Créer un bouton pour chaque ligne avec l'ID correspondant
+                            echo "<br>";
+                            echo "<button id='supprimer-donnees'>annuler mission</button>";
+                            echo "<br><br>";
+                        
+                    }
+                }
+            } else {
+                echo "Aucun résultat trouvé.";
+            } //ok
 
-    //stmt2 contact
-    if ($stmt2->rowCount() > 0) {
-        // Affichage des données pour chaque ligne correspondante
-        while ($row2 = $stmt->fetchAll(PDO::FETCH_ASSOC)) {
-            echo '<h2>vos informations</h2>';
-            echo "Nom: " . $row2['nomcontact'].  " - Prénom: " . $row2['prenomcontact']. "<br><br>Date de naissance ". $row2['datenaissancecontact'] . "Nationnalité" . $row2['nationnalitecontact'];
-            // Créer un bouton pour chaque ligne avec l'ID correspondant
-            echo "<button onclick=''>annuler mission</button>";
-            echo "<br><br>";
-        }
-    } else {
-        echo "Aucun résultat trouvé.";
-    }
+        } catch (PDOException $e) {
+            echo "Erreur lors de l'exécution de la requête : " . $e->getMessage();
+        };
+     if ($_SESSION['responce'] == 'ok') {
+         header("Refresh:0");
+         $_SESSION['responce'] = null;
+     }if ($_SESSION['responce'] == null) {}
 
-    // stmt3 cibles
-    if ($stmt->rowCount() > 0) {
-        // Affichage des données pour chaque ligne correspondante
-        while ($row3 = $stmt->fetchAll(PDO::FETCH_ASSOC)) {
-            echo '<h2>vos informations</h2>';
-            echo "Nom: " . $row3['nomcontact'].  " - Prénom: " . $row3['prenomcontact']. "<br><br>Date de naissance ". $row3['datenaissancecontact'] . "Nationnalité" . $row3['nationnalitecontact'];
-            // Créer un bouton pour chaque ligne avec l'ID correspondant
-            echo "<button onclick=''>annuler mission</button>";
-            echo "<br><br>";
-        }
-    } else {
-        echo "Aucun résultat trouvé.";
-    }
-} catch(PDOException $e) {
-    echo "Erreur lors de l'exécution de la requête : " . $e->getMessage();
-}
-
-// Fermeture de la connexion à la base de données
-$bdd = null;
-?>
+        // Fermeture de la connexion à la base de données
+        $bdd = null;
+        //verifier les erreurs consoles regler 
+        //le soucis de rafraichissement de page en boucle
+        //creer le statut davencement mission
+        ?>
+ <script>
+    document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("supprimer-donnees").addEventListener("click", function() {
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "../../back-end/php/supprimer_donnees.php", true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200 && xhr.responseText === "success") {
+                    console.log("Suppression réussie");
+                    // Recharge la page après suppression seulement si la suppression a réussi
+                    location.reload();
+                } else {
+                    console.error('Échec de la suppression : ' + xhr.status);
+                }
+            }
+        };
+        xhr.send();
+    });
+});
+</script>
 
     </main>
-    </body>
+</body>
+
 </html>

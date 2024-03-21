@@ -56,6 +56,15 @@ CREATE TABLE missions (
     FOREIGN KEY (iduser) REFERENCES client(id)
 )
 
+INSERT INTO missions (titre, but, paysmission,nomdecodemission, iduser) VALUES
+(
+    'reconnaissance',
+    'faire une reconnaissance',
+    'france',
+    'rec1',
+    '1'
+)
+
 DROP TABLE missions;
 
 CREATE TABLE contact (
@@ -68,6 +77,15 @@ CREATE TABLE contact (
     FOREIGN KEY (iduser) REFERENCES client(id)
 )
 
+INSERT INTO contact (nomcontact, prenomcontact, datenaissancecontact,nationnalitecontact, iduser) VALUES
+(
+    'loubiere',
+    'alio',
+    '30-10-1998',
+    'france',
+    '1'
+)
+
 DROP TABLE contact;
 
 CREATE TABLE cible (
@@ -78,6 +96,15 @@ CREATE TABLE cible (
     nationnalitecible VARCHAR (40) NOT NULL,
     iduser INT NOT NULL,
     FOREIGN KEY (iduser) REFERENCES client(id)
+)
+
+INSERT INTO cible (nomcible, prenomcible, datenaissancecible,nationnalitecible, iduser) VALUES
+(
+    'pinot',
+    'jean-marc',
+    '12-02-1989',
+    'france',
+    '1'
 )
 
 DROP TABLE cible;
