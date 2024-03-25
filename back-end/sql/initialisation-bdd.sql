@@ -17,6 +17,16 @@ CREATE TABLE roles (
     FOREIGN KEY (userid) REFERENCES clients(id)
 )
 
+INSERT INTO roles (role, userid) VALUES (
+'modo',
+2
+);
+
+INSERT INTO roles (role, userid) VALUES (
+'mercenaire',
+3
+);
+
 DROP TABLE roles;
 
 CREATE TABLE planques (

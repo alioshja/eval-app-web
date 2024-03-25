@@ -13,12 +13,29 @@ include_once '../back-end/php/script-de-recuperation-d\'info-personelle.php';
 </html>
 
 <body>
-    <nav>
-        <button onclick="window.location.href = '../front-end/php/demande-intervention.php';">demander-intervention</button>
-        <button onclick="window.location.href = '../front-end/php/messagerie.php';">messagerie</button>
-        <button onclick="window.location.href = '../front-end/php/interventions-en-cours.php';">interventions-en-cours</button>
-        <img class="profileImg" src="../images/anonyme-image-mâle-profil.jpg">
-    </nav>
+    <?php
+    if ($_SESSION['role'] == null) {
+    echo '<nav>';
+    echo '<button onclick="window.location.href = \'../front-end/php/demande-intervention.php\';">demander-intervention</button>';
+    echo '<button onclick="window.location.href = \'../front-end/php/messagerie.php\';">messagerie</button>';
+    echo '<button onclick="window.location.href = \'../front-end/php/interventions-en-cours.php\';">interventions-en-cours</button>';
+    echo '<img class="profileImg" src="../images/anonyme-image-mâle-profil.jpg">';
+    echo '</nav>';
+    }else if ($_SESSION['role'] == 'mercenaire') {
+        echo '<nav>';
+        echo '<button onclick="window.location.href = \'.php\';">Chercher-intervention</button>';
+        echo '<button onclick="window.location.href = \'../front-end/php/messagerie.php\';">messagerie</button>';
+        echo '<button onclick="window.location.href = \'.php\';">Mes missions</button>';
+        echo '<img class="profileImg" src="../images/anonyme-image-mâle-profil.jpg">';
+        echo '</nav>';
+    }else if ($_SESSION['role'] == 'modo') {
+        echo '<nav>';
+        echo '<button onclick="window.location.href = \'.php\';">Chercher-utilisateur</button>';
+        echo '<button onclick="window.location.href = \'../front-end/php/messagerie.php\';">messagerie</button>';
+        echo '<img class="profileImg" src="../images/anonyme-image-mâle-profil.jpg">';
+        echo '</nav>';
+    };
+    ?>
     <div>
 <?php include_once '../front-end/php/body-compte-perso.php' ?>
 </div>
