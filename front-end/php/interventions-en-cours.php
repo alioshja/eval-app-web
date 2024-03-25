@@ -58,7 +58,7 @@
                     if ($stmt2->rowCount() > 0) {
                         // Affichage des données pour chaque ligne correspondante
                         ($row2 = $stmt2->fetch(PDO::FETCH_ASSOC));
-                            echo '<h2>Vos informations</h2>';
+                            echo '<h2 style="h2">Vos informations</h2>';
                             echo "<p>Nom: " . $row2['nomcontact'] .  " - Prénom: " . $row2['prenomcontact'] . "<br><br>Date de naissance " . $row2['datenaissancecontact'] . "Nationnalité" . $row2['nationnalitecontact'] . "</p>";
                             // Créer un bouton pour chaque ligne avec l'ID correspondant
                             echo "<br>";
@@ -68,11 +68,11 @@
                     if ($stmt3->rowCount() > 0) {
                         // Affichage des données pour chaque ligne correspondante
                         $row3 = $stmt3->fetch(PDO::FETCH_ASSOC);
-                            echo '<h2>Info cible</h2>';
+                            echo '<h2 style="h2">Info cible</h2>';
                             echo "<p>Nom: " . $row3['nomcible'] .  " - Prénom: " . $row3['prenomcible'] . "<br><br>Date de naissance " . $row3['datenaissancecible'] . "Nationnalité" . $row3['nationnalitecible'] . "</p>";
                             // Créer un bouton pour chaque ligne avec l'ID correspondant
                             echo "<br>";
-                            echo "<button id='supprimer-donnees'>annuler mission</button>";
+                            echo "<button class='supprimer-donnees' data-id='" . $id_mission . "'>annuler mission</button>";
                             echo "<br><br>";
                         
                     }
@@ -84,34 +84,37 @@
         } catch (PDOException $e) {
             echo "Erreur lors de l'exécution de la requête : " . $e->getMessage();
         };
+        if (isset($_SESSION['responce'])) {
      if ($_SESSION['responce'] == 'ok') {
          header("Refresh:0");
          $_SESSION['responce'] = null;
-     }if ($_SESSION['responce'] == null) {}
+     }else {$_SESSION['responce'] == null;} 
+    };
 
         // Fermeture de la connexion à la base de données
         $bdd = null;
-        //verifier les erreurs consoles regler 
-        //le soucis de rafraichissement de page en boucle
-        //creer le statut davencement mission
         ?>
  <script>
     document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById("supprimer-donnees").addEventListener("click", function() {
-        var xhr = new XMLHttpRequest();
-        xhr.open("POST", "../../back-end/php/supprimer_donnees.php", true);
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === XMLHttpRequest.DONE) {
-                if (xhr.status === 200 && xhr.responseText === "success") {
-                    console.log("Suppression réussie");
-                    // Recharge la page après suppression seulement si la suppression a réussi
-                    location.reload();
-                } else {
-                    console.error('Échec de la suppression : ' + xhr.status);
+    var boutonsSupprimer = document.querySelectorAll(".supprimer-donnees");
+    boutonsSupprimer.forEach(function(bouton) {
+        bouton.addEventListener("click", function() {
+            var idMission = this.getAttribute("data-id");
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "../../back-end/php/supprimer_donnees.php", true);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200 || xhr.responseText === "success") {
+                        console.log("Suppression réussie");
+                        // Recharge la page après suppression seulement si la suppression a réussi
+                        location.reload();
+                    } else {
+                        console.error('Échec de la suppression : ' + xhr.status);
+                    }
                 }
-            }
-        };
-        xhr.send();
+            };
+            xhr.send();
+        });
     });
 });
 </script>

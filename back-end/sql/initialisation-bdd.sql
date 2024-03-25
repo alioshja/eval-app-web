@@ -10,13 +10,14 @@ CREATE TABLE agents (
 
 DROP TABLE agents;
 
-CREATE TABLE administrateur (
+CREATE TABLE roles (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    mail VARCHAR(70) NOT NULL,
-    password VARCHAR(60) NOT NULL
+    role VARCHAR(70) NOT NULL,
+    userid INT NOT NULL,
+    FOREIGN KEY (userid) REFERENCES clients(id)
 )
 
-DROP TABLE administrateur;
+DROP TABLE roles;
 
 CREATE TABLE planques (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -34,6 +35,31 @@ CREATE TABLE clients (
     prenom VARCHAR(50),
     nom VARCHAR(50)
 )
+
+INSERT INTO clients (id, mail, password, prenom, nom) VALUES (
+    1,
+    'laboucheriedu12cestbeau@gmail.com',
+    'loulaetup1998',
+    'alio',
+    'loubiere'
+);
+
+INSERT INTO clients (id, mail, password, prenom, nom) VALUES (
+    2,
+    'lemodo@gmail.com',
+    'jesuismodo12',
+    'modo',
+    'mododo'
+);
+
+INSERT INTO clients (id, mail, password, prenom, nom) VALUES (
+    3,
+    'lemercenaire@gmail.com',
+    'jesuismercenaire12',
+    'mercenaire',
+    'mercenairenaire'
+)
+
 
 DROP TABLE clients;
 
@@ -108,3 +134,18 @@ INSERT INTO cible (nomcible, prenomcible, datenaissancecible,nationnalitecible, 
 )
 
 DROP TABLE cible;
+
+CREATE TABLE messagerie (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    message VARCHAR(60) NOT NULL,
+    userid INT NOT NULL,
+    FOREIGN KEY (userid) REFERENCES client(id)
+)
+
+INSERT INTO messagerie (id ,message ,userid ) VALUES (
+    1,
+    'votre mission \"" . $nomMission . "\" a ete atribué a un agent',
+    1
+)
+
+DROP TABLE messagerie;

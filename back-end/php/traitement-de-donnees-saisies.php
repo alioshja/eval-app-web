@@ -21,11 +21,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $prenom = $_POST['prenom'];
     $nom = $_POST['nom'];
 
+    //requette de verification si email existe deja une cond anulera l'inscription de bdd
+    $sql2 = "SELECT * FROM clients WHERE mail = :mail";
+    $stmt2 = $bdd->prepare($sql2);
+    $stmt2->bindParam(":mail", $email);
+    $stmt2->execute();
 
     // Validation des données (vous devriez ajouter plus de validation selon vos besoins)
     if (empty($email) || empty($password) || empty($prenom) || empty($nom)) {
         // Gérer les cas où des champs obligatoires sont vides
         echo "Tous les champs doivent être remplis.";
+        exit; // Arrêter l'exécution du script
+    }
+    if ($stmt2->rowCount() > 0) {
+        echo "<p class='center'>email deja existante vous ne pouvez pas creer plusieurs comptes avec une email.</p>";
         exit; // Arrêter l'exécution du script
     }
 

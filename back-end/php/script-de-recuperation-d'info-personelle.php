@@ -22,5 +22,16 @@ if ($stmt->rowCount() > 0) {
 } else {
     echo "Aucun utilisateur trouvé avec cet e-mail.";
 }
+
+$sql2 = "SELECT role FROM roles WHERE userid = :userid";
+$stmt2 = $bdd->prepare($sql2);
+$stmt2->bindParam(':userid', $_SESSION['id']);
+$stmt2->execute();
+
+if ($stmt2->rowCount() > 0) {
+    $row2 = $stmt2->fetch(PDO::FETCH_ASSOC);
+    $_SESSION['role'] = $row2['role'];
+}else;
+
 $img = '';
 ?>
