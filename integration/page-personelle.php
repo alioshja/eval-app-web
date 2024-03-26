@@ -23,14 +23,14 @@ include_once '../back-end/php/script-de-recuperation-d\'info-personelle.php';
     echo '</nav>';
     }else if ($_SESSION['role'] == 'mercenaire') {
         echo '<nav>';
-        echo '<button onclick="window.location.href = \'.php\';">Chercher-intervention</button>';
+        echo '<button onclick="window.location.href = \'../front-end/php/attribution-mission.php\';">Chercher-intervention</button>';
         echo '<button onclick="window.location.href = \'../front-end/php/messagerie.php\';">messagerie</button>';
         echo '<button onclick="window.location.href = \'.php\';">Mes missions</button>';
         echo '<img class="profileImg" src="../images/anonyme-image-mâle-profil.jpg">';
         echo '</nav>';
     }else if ($_SESSION['role'] == 'modo') {
         echo '<nav>';
-        echo '<button onclick="window.location.href = \'.php\';">Chercher-utilisateur</button>';
+        echo '<button onclick="window.location.href = \'../front-end/php/Recherche-utilisateur.php\';">Chercher-utilisateur</button>';
         echo '<button onclick="window.location.href = \'../front-end/php/messagerie.php\';">messagerie</button>';
         echo '<img class="profileImg" src="../images/anonyme-image-mâle-profil.jpg">';
         echo '</nav>';

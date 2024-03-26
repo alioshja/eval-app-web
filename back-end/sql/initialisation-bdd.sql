@@ -1,14 +1,6 @@
 -- Active: 1694069296748@@127.0.0.1@3306@mercenary
 CREATE DATABASE mercenary;
 DROP DATABASE mercenary;
-CREATE TABLE agents (
-    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    code INT NOT NULL,
-    specilisation VARCHAR(60) NOT NULL,
-    pays VARCHAR(50)
-)
-
-DROP TABLE agents;
 
 CREATE TABLE roles (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -33,8 +25,39 @@ CREATE TABLE planques (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     pays VARCHAR(50) NOT NULL,
     code INT NOT NULL,
-    pole VARCHAR(20) NOT NULL
-)
+    adresse VARCHAR(20) NOT NULL
+);
+
+    INSERT INTO planques (pays, code, adresse) VALUES (
+        'france',
+        'code 00233',
+        '13 avenue du cosse 23000 saint-fiel'
+    );
+
+        INSERT INTO planques (pays, code, adresse) VALUES (
+        'france',
+        'code 10283',
+        '15 rue beteille 12000 rodez'
+    );
+
+        INSERT INTO planques (pays, code, adresse) VALUES (
+        'italie',
+        'code 11763',
+        '2 Piazza Carlo di Borbone, 81100 Caserte'
+    );
+
+    INSERT INTO planques (pays, code, adresse) VALUES (
+        'espagne',
+        'code 16733',
+        '7 Gran Vía, 28013 Madrid, Espagne'
+    );
+
+    INSERT INTO planques (pays, code, adresse) VALUES (
+        'allemagne',
+        'code 18891',
+        'Leipzigerplatz 12, 10117 Berlin'
+    );
+    
 
 DROP TABLE planques;
 
@@ -159,3 +182,14 @@ INSERT INTO messagerie (id ,message ,userid ) VALUES (
 )
 
 DROP TABLE messagerie;
+
+CREATE TABLE missionattribuées (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+    idmission INT NOT NULL,
+    idmercenaire INT NOT NULL,
+    idplanques INT NOT NULL,
+    FOREIGN KEY (idmission) REFERENCES missions(id),
+    FOREIGN KEY (idmercenaire) REFERENCES clients(id),
+    FOREIGN KEY (idplanques) REFERENCES planques(id)
+    ) 
+
